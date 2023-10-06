@@ -1,26 +1,57 @@
-#ifndef LISTS_H
-#define LISTS_H
-
-#include <stddef.h>
+#include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: points to the next node
- *
- * Description: singly linked list node structure
- * for Holberton project
+ * insert_node - inserts a number into a sorted singly linked list
+ * @head: pointer to pointer of first node of listint_t list
+ * @number: integer to be included in new node
+ * Return: address of the new element or NULL if it fails
  */
-typedef struct listint_s
+listint_t *insert_node(listint_t **head, int number)
 {
-    int n;
-    struct listint_s *next;
-} listint_t;
+    listint_t *new;
+    listint_t *current;
+    int flag = 0;
 
-size_t print_listint(const listint_t *h);
-listint_t *add_nodeint_end(listint_t **head, const int n);
-void free_listint(listint_t *head);
+    current = *head;
 
-listint_t *insert_node(listint_t **head, int number);
+    new = malloc(sizeof(listint_t));
+    if (new == NULL)
+        return (NULL);
 
-#endif /* LISTS_H */
+    new->n = number;
+
+    if (*head == NULL)
+        *head = new;
+    else if (current->n >= new->n)
+    {
+        new->next = current;
+        current = new;
+        *head = current;
+        return (*head);
+    }
+    else
+    {
+        while (current->next != NULL && current->next->next != NULL)
+        {
+            if (current->next->n >= new->n && flag == 0)
+            {
+                new->next = current->next;
+                current->next = new;
+                flag = 1;
+            }
+            current = current->next;
+        }
+
+        current = current->next;
+
+        if (flag == 1)
+            return (new);
+
+        current->next = new;
+        new->next = NULL;
+    }
+
+    return (new);
+}
