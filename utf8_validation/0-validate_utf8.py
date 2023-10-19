@@ -9,22 +9,21 @@ def validUTF8(data):
 
     for b in data:
         if _bytes == 0:
-            if (b >> 7) == 0:
+            if (b & 0x80) == 0:
                 continue
 
-            elif (b >> 5) == 0b110:
+            elif (b & 0xE0) == 0xC0:
                 _bytes = 1
-            elif (b >> 4) == 0b1110:
+            elif (b & 0xF0) == 0xE0:
                 _bytes = 2
-            elif (b >> 3) == 0b11110:
+            elif (b & 0xF8) == 0xF0:
                 _bytes = 3
             else:
                 return False
 
         else:
-            if (b >> 6) != 0b10:
+            if (b & 0xC0) != 0x80:
                 return False
-
             _bytes -= 1
 
     return _bytes == 0
