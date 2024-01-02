@@ -90,6 +90,6 @@ void free_mem(avl_t **tree)
 
 	free(*tree);
 
-	free_avl(&left);
-	free_avl(&right);
+	free_mem(&left);
+	free_mem(&right);
 }
