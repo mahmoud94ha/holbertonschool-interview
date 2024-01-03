@@ -9,7 +9,7 @@
  * This function sorts the binary heap tree
  *
  * @current: The root node of the binary heap tree to be sorted
- * @return A pointer to the sorted binary heap tree
+ * Return: A pointer to the sorted binary heap tree
  */
 heap_t *sort_heap(heap_t *current)
 {
@@ -67,7 +67,7 @@ target_level, size_t current_level)
  * This function calculates the height of a given binary tree.
  *
  * @tree: The root node of the binary tree
- * @return The height of the binary tree
+ * Return: The height of the binary tree
  */
 static size_t get_tree_height(const binary_tree_t *tree)
 {
@@ -84,7 +84,7 @@ static size_t get_tree_height(const binary_tree_t *tree)
  * This function extracts the root value from a binary heap tree
  *
  * @root: A double pointer to the root node of the binary heap tree
- * @return The extracted value from the root of the binary heap tree
+ * Return: The extracted value from the root of the binary heap tree
  */
 int heap_extract(heap_t **root)
 {
