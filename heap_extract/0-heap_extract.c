@@ -4,10 +4,12 @@
 #include <string.h>
 
 /**
- * @brief sort heap
+ * sort_heap - Sorts a binary heap tree
  *
- * @param current
- * @return heap_t*
+ * This function sorts the binary heap tree
+ *
+ * @param current The root node of the binary heap tree to be sorted
+ * @return A pointer to the sorted binary heap tree
  */
 heap_t *sort_heap(heap_t *current)
 {
@@ -35,12 +37,14 @@ heap_t *sort_heap(heap_t *current)
 }
 
 /**
- * @brief preorder_traversal
+ * preorder_traversal - Performs preorder traversal
  *
- * @param root root
- * @param node node
- * @param target_level target_level
- * @param current_level current_level
+ * This function performs a preorder traversal of a binary tree
+ *
+ * @param root The root node of the binary tree
+ * @param node A double pointer to store the found node
+ * @param target_level The target level to find the node
+ * @param current_level The current level during traversal
  */
 void preorder_traversal(heap_t *root, heap_t **node, size_t
 target_level, size_t current_level)
@@ -58,10 +62,12 @@ target_level, size_t current_level)
 }
 
 /**
- * @brief get_tree_height
+ * get_tree_height - Calculates the height
  *
- * @param tree tree
- * @return size_t
+ * This function calculates the height of a given binary tree.
+ *
+ * @param tree The root node of the binary tree
+ * @return The height of the binary tree
  */
 static size_t get_tree_height(const binary_tree_t *tree)
 {
@@ -73,10 +79,12 @@ static size_t get_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * @brief heap_extract
+ * heap_extract - Extracts the root value
  *
- * @param root root
- * @return int
+ * This function extracts the root value from a binary heap tree
+ *
+ * @param root A double pointer to the root node of the binary heap tree
+ * @return The extracted value from the root of the binary heap tree
  */
 int heap_extract(heap_t **root)
 {
