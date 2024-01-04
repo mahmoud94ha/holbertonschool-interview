@@ -2,8 +2,8 @@
 #define HOLBERTON_H
 
 int _putchar(char c);
-int is_digit_string(char *str);
-int string_length(char *str);
-void multiply_strings(char *num1, char *num2);
+int str_checker(char *str);
+int len_str(char *str);
+void mult_str(char *num1, char *num2);
 
 #endif /* HOLBERTON_H */
