@@ -1,15 +1,15 @@
 #!/usr/bin/node
 const request = require('request');
 
-const movie_id = process.argv[2];
-const starwars_api = `https://swapi.dev/api/films/${movie_id}/`;
+const movieId = process.argv[2];
+const starApi = `https://swapi.dev/api/films/${movieId}/`;
 
-request(starwars_api, async (error, response, body) => {
+request(starApi, async (error, response, body) => {
   if (error) {
     console.error(error);
   } else {
-    const res_char = JSON.parse(body).characters;
-    for (const url of res_char) {
+    const resChar = JSON.parse(body).characters;
+    for (const url of resChar) {
       await new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
           if (error) {
