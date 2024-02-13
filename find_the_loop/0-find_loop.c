@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- *find_loop_start - Find loop in a linked list
+ *find_listint_loop - Find loop in a linked list
  *@head: Pointer to the head of the linked list
  *
  *Return: Address of the node where the loop starts
  */
-listint_t *find_loop_start(listint_t *head)
+listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *slow_ptr, *fast_ptr;
 
