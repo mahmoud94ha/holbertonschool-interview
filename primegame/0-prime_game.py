@@ -16,6 +16,7 @@ def round_checker(round_number, prime_list):
                       for i in prime_list[:round_number + 1])
     return "Maria" if prime_count % 2 else "Ben"
 
+
 def prime_number_adder(num, prime_list):
     """Prototype: def add_prime_number(n, primes_list)"""
     l_prime = prime_list[-1]
@@ -35,7 +36,7 @@ def isWinner(num_rounds, round_values):
 
     for current_round in range(num_rounds):
         round_winner = round_checker(round_values[current_round],
-                                              primes)
+                                     primes)
         if round_winner:
             players_score[round_winner] += 1
 
